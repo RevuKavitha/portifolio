@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "WATCHPACK_POLLING=true next dev",
+    "dev": "mkdir -p .next/cache/webpack/client-development && WATCHPACK_POLLING=true next dev",
     "dev:fast": "next dev",
     "build": "next build",
     "start": "next start",
@@ -12,6 +12,8 @@
   "dependencies": {
     "@react-three/drei": "^9.122.0",
     "@react-three/fiber": "^8.17.10",
+    "@splinetool/react-spline": "^4.1.0",
+    "@splinetool/runtime": "^1.12.81",
     "framer-motion": "^11.2.10",
     "next": "^14.2.5",
     "react": "^18.3.1",
