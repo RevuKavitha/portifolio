@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  background: #050816;
+}
+
+body {
+  color: #e2e8f0;
+  background-image:
+    radial-gradient(circle at 10% 10%, rgba(34, 211, 238, 0.1) 0%, transparent 35%),
+    radial-gradient(circle at 85% 20%, rgba(249, 115, 22, 0.09) 0%, transparent 30%),
+    linear-gradient(180deg, #050816 0%, #0b1120 55%, #050816 100%);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #22d3ee #0f172a;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #22d3ee, #f97316);
+  border-radius: 999px;
+}
+
+.road-grid {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: box-shadow 280ms ease;
+}
+
+main section {
+  position: relative;
+  isolation: isolate;
+  transition: filter 320ms ease;
+}
+
+main section.is-active-section::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 28px;
+  box-shadow:
+    0 0 0 1px rgba(34, 211, 238, 0.18),
+    0 0 28px rgba(34, 211, 238, 0.14),
+    0 0 68px rgba(56, 189, 248, 0.1);
+  animation: active-section-pulse 2.8s ease-in-out infinite;
+}
+
+.magnetic-link {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 260ms ease, text-shadow 260ms ease;
+}
+
+.magnetic-link:hover {
+  transform: translateY(-1px) translateX(2px);
+  text-shadow: 0 0 12px rgba(103, 232, 249, 0.35);
+}
+
+@keyframes active-section-pulse {
+  0%,
+  100% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media print {
+  html,
+  body {
+    background: #fff !important;
+    background-image: none !important;
+    color: #0f172a !important;
+  }
+
+  .road-grid {
+    display: none !important;
+  }
+}
