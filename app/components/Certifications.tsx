@@ -17,13 +17,6 @@ type Certificate = {
 
 const certificates: Certificate[] = [
   {
-    title: "Web Development",
-    issuer: "Industry Program",
-    date: "2023",
-    image: "/certificates/img1.jpeg",
-    category: "technical"
-  },
-  {
     title: "Backend Web Development",
     issuer: "Professional Academy",
     date: "2023",

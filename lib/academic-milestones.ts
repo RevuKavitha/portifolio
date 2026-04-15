@@ -28,8 +28,8 @@ export const academicMilestones: AcademicMilestone[] = [
     title: "12th Class",
     subtitle: "Higher Secondary",
     institution: "Sri Sai Junior College, Yanam",
-    details: "Passed in 2020 with a GPA of 8.0.",
-    tags: ["Intermediate", "GPA 8.0", "Yanam"]
+    details: "Passed in 2020 with a CGPA of 8.0.",
+    tags: ["Intermediate", "CGPA 8.0", "Yanam"]
   },
   {
     station: "B.TECH",

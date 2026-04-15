@@ -112,7 +112,7 @@ export default function Timeline() {
               <div className="relative h-14 w-14 overflow-hidden rounded-full border border-cyan-300/55 bg-slate-900/70 p-[2px] shadow-[0_0_14px_rgba(34,211,238,0.25)]">
                 <div className="relative h-full w-full overflow-hidden rounded-full">
                   <Image
-                    src="/certificates/academy.jpeg"
+                    src="/certificates/acdemicjourney.png"
                     alt="Academic Journey"
                     fill
                     className="object-cover"

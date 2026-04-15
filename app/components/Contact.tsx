@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import { FormEvent, memo, useEffect, useMemo, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { getPortfolioFallbackReply, type ChatTurn } from "@/lib/portfolio-chat";
@@ -23,6 +23,19 @@ const SplineRobot = dynamic(() => import("./SplineRobot"), {
   )
 });
 
+const RobotPanel = memo(function RobotPanel() {
+  return (
+    <div className="relative min-h-[420px] overflow-hidden rounded-2xl border border-cyan-300/30 bg-gradient-to-b from-slate-900 to-slate-950">
+      <SplineRobot className="h-full w-full" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 border-t border-slate-900 bg-black px-3 py-5 text-center shadow-[0_-18px_34px_rgba(0,0,0,0.6)]">
+        <span className="text-xs font-medium tracking-wide text-cyan-200">
+          AI Companion
+        </span>
+      </div>
+    </div>
+  );
+});
+
 function formatAssistantText(text: string): string {
   return text
     .replace(/\*\*/g, "")
@@ -34,9 +47,7 @@ function formatAssistantText(text: string): string {
 export default function Contact() {
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
-  const [showSpline, setShowSpline] = useState(false);
-  const splineBoxRef = useRef<HTMLDivElement | null>(null);
-  const chatEndRef = useRef<HTMLDivElement | null>(null);
+  const chatScrollRef = useRef<HTMLDivElement | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: "assistant-0",
@@ -53,26 +64,11 @@ export default function Contact() {
   }, [isTyping]);
 
   useEffect(() => {
-    if (!splineBoxRef.current || showSpline) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setShowSpline(true);
-            observer.disconnect();
-          }
-        });
-      },
-      { rootMargin: "220px 0px", threshold: 0.05 }
-    );
-
-    observer.observe(splineBoxRef.current);
-    return () => observer.disconnect();
-  }, [showSpline]);
-
-  useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+    if (!chatScrollRef.current) return;
+    chatScrollRef.current.scrollTo({
+      top: chatScrollRef.current.scrollHeight,
+      behavior: "smooth"
+    });
   }, [messages, isTyping]);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -139,29 +135,16 @@ export default function Contact() {
           viewport={{ once: true, amount: 0.3 }}
           className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]"
         >
-          <div
-            ref={splineBoxRef}
-            className="relative min-h-[420px] overflow-hidden rounded-2xl border border-cyan-300/30 bg-gradient-to-b from-slate-900 to-slate-950"
-          >
-            {showSpline ? (
-              <SplineRobot className="h-full w-full" />
-            ) : (
-              <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_30%_20%,rgba(56,189,248,0.12),transparent_50%)] text-xs text-cyan-200/80">
-                Loading AI Companion...
-              </div>
-            )}
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 border-t border-slate-900 bg-black px-3 py-5 text-center shadow-[0_-18px_34px_rgba(0,0,0,0.6)]">
-              <span className="text-xs font-medium tracking-wide text-cyan-200">
-                AI Companion
-              </span>
-            </div>
-          </div>
+          <RobotPanel />
 
           <div className="rounded-2xl border border-slate-700/80 bg-slate-900/70 p-6">
             <h3 className="text-xl font-semibold text-cyan-200">Portfolio Chatbot</h3>
             <p className="mt-2 text-sm text-slate-400">Ask quick questions about my profile and work.</p>
             <div className="mt-5 space-y-3">
-              <div className="h-[300px] space-y-2 overflow-y-auto rounded-xl border border-slate-700 bg-slate-950/70 p-3">
+              <div
+                ref={chatScrollRef}
+                className="h-[300px] space-y-2 overflow-y-auto rounded-xl border border-slate-700 bg-slate-950/70 p-3"
+              >
                 {messages.map((message) => (
                   <div
                     key={message.id}
@@ -179,7 +162,6 @@ export default function Contact() {
                     Typing...
                   </div>
                 ) : null}
-                <div ref={chatEndRef} />
               </div>
               <form onSubmit={handleSubmit} className="flex items-center gap-2">
                 <input

@@ -7,6 +7,20 @@ export default function ScrollEnhancements() {
   const { scrollYProgress } = useScroll();
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const previousRestoration = window.history.scrollRestoration;
+    window.history.scrollRestoration = "manual";
+
+    // Always open from top to avoid restored/anchored jump on first load.
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+
+    return () => {
+      window.history.scrollRestoration = previousRestoration;
+    };
+  }, []);
+
+  useEffect(() => {
     const sections = Array.from(document.querySelectorAll("main section[id]"));
     if (!sections.length) return;
 

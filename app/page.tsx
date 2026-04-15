@@ -2,7 +2,6 @@ import Certifications from "./components/Certifications";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
 import Hero from "./components/Hero";
-import Hobbies from "./components/Hobbies";
 import Projects from "./components/Projects";
 import ScrollEnhancements from "./components/ScrollEnhancements";
 import Skills from "./components/Skills";
@@ -18,7 +17,6 @@ export default function HomePage() {
       <Certifications />
       <Experience />
       <Skills />
-      <Hobbies />
       <Contact />
     </main>
   );

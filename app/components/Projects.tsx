@@ -227,7 +227,7 @@ export default function Projects() {
         <div className="flex items-center gap-4">
           <div className="relative h-14 w-14 overflow-hidden rounded-full border border-cyan-300/55 bg-slate-900/70 p-[2px] shadow-[0_0_14px_rgba(34,211,238,0.25)]">
             <div className="relative h-full w-full overflow-hidden rounded-full">
-              <Image src="/certificates/project.jpeg" alt="Projects" fill className="object-cover" />
+              <Image src="/certificates/project.png" alt="Projects" fill className="object-cover" />
             </div>
           </div>
           <h2 className="text-3xl font-bold text-slate-50 sm:text-4xl">Projects</h2>
