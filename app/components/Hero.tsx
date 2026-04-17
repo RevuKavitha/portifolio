@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import { openResumePrintDialog, RESUME_FILENAME } from "@/lib/resume";
+import { downloadResume, RESUME_FILENAME } from "@/lib/resume";
 import StatsCounters from "./StatsCounters";
 
 type Bubble = {
@@ -110,9 +110,9 @@ export default function Hero() {
             </a>
             <button
               type="button"
-              onClick={() => openResumePrintDialog()}
+              onClick={() => downloadResume()}
               className="relative z-20 inline-flex cursor-pointer items-center justify-center rounded-full border border-cyan-300/50 bg-slate-900/40 px-6 py-3 font-semibold text-slate-100 shadow-[0_0_20px_rgba(34,211,238,0.12)] transition hover:scale-105 hover:border-cyan-300 hover:bg-slate-900/70 hover:text-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
-              aria-label={`Print this page; in the print dialog choose Save as PDF to save as ${RESUME_FILENAME}`}
+              aria-label={`Download ${RESUME_FILENAME}`}
             >
               Download Resume
             </button>
