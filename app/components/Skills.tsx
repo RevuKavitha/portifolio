@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import type { IconType } from "react-icons";
 import { BiScatterChart } from "react-icons/bi";
-import { FaDatabase, FaJava, FaNetworkWired, FaServer, FaToolbox } from "react-icons/fa6";
+import { FaDatabase, FaJava, FaNetworkWired, FaServer } from "react-icons/fa6";
 import {
   SiC,
   SiCplusplus,
