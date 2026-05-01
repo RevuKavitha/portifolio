@@ -16,6 +16,56 @@ type Project = {
 
 const projects: Project[] = [
   {
+    title: "Network Monitoring & API Performance Analyzer",
+    description:
+      "Built a full-stack monitoring platform that tracks API and website health in near real time. It periodically sends HTTP checks to configured URLs, records response latency, status codes, uptime/failure states, and visualizes trends in an interactive dashboard.",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "API Monitoring",
+      "HTTP Health Checks",
+      "Performance Analytics",
+      "Dashboard"
+    ],
+    github: "https://github.com/RevuKavitha/Network-Monitoring-API-Performance-Analyzer",
+    demo: "https://network-monitoring-api-performance.vercel.app/",
+    usage: [
+      "Add one or more target API or website URLs.",
+      "Start monitoring to run periodic HTTP checks.",
+      "View uptime, status, response time, and trend graphs."
+    ],
+    verify: [
+      "Healthy endpoints show expected success status codes.",
+      "Latency trends update as monitoring cycles complete.",
+      "Failure states appear correctly for unavailable endpoints."
+    ]
+  },
+  {
+    title: "Live HTTP Traffic Monitoring System",
+    description:
+      "Designed a real-time HTTP traffic monitoring dashboard using FastAPI and Next.js. The system captures requests, computes live metrics, and supports simulation, filtering, WebSocket-driven updates, and SQLite persistence for traffic analysis.",
+    stack: [
+      "FastAPI",
+      "Next.js",
+      "WebSockets",
+      "SQLite",
+      "Real-Time Analytics",
+      "Traffic Filtering"
+    ],
+    github: "https://github.com/RevuKavitha/Live-HTTP-Traffic-Monitoring-System",
+    demo: "https://live-http-traffic-monitoring-system.vercel.app/",
+    usage: [
+      "Launch monitoring or simulation mode from the dashboard.",
+      "Track live request counts, response metrics, and traffic flow.",
+      "Apply filters to inspect specific endpoints and events."
+    ],
+    verify: [
+      "Live metrics update continuously during incoming traffic.",
+      "WebSocket stream reflects real-time request activity.",
+      "Stored records persist in SQLite and reload correctly."
+    ]
+  },
+  {
     title: "Data Analysis Toolkit",
     description:
       "Developed an end-to-end ML system to predict customer churn and revenue trends. Applied feature engineering, model evaluation, and interactive visualizations to generate actionable business insights.",
@@ -220,7 +270,22 @@ const projects: Project[] = [
   }
 ];
 
+const priorityProjectTitles = [
+  "Network Monitoring & API Performance Analyzer",
+  "Live HTTP Traffic Monitoring System"
+];
+
 export default function Projects() {
+  const orderedProjects = [...projects].sort((a, b) => {
+    const aRank = priorityProjectTitles.indexOf(a.title);
+    const bRank = priorityProjectTitles.indexOf(b.title);
+
+    const normalizedARank = aRank === -1 ? Number.MAX_SAFE_INTEGER : aRank;
+    const normalizedBRank = bRank === -1 ? Number.MAX_SAFE_INTEGER : bRank;
+
+    return normalizedARank - normalizedBRank;
+  });
+
   return (
     <section id="projects" className="px-6 py-20 sm:px-10 lg:px-20">
       <div className="mx-auto max-w-6xl">
@@ -237,7 +302,7 @@ export default function Projects() {
         </p>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {projects.map((project) => (
+          {orderedProjects.map((project) => (
             <motion.div
               key={project.title}
               whileHover={{ y: -8 }}

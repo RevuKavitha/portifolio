@@ -103,8 +103,8 @@ const certificates: Certificate[] = [
 ];
 
 const tabs: { id: Category; label: string; icon: string }[] = [
-  { id: "technical", label: "Professional Certifications", icon: "</>" },
-  { id: "professional", label: "Technical Certifications", icon: "◈" },
+  { id: "technical", label: "Technical Certifications", icon: "</>" },
+  { id: "professional", label: "Professional Certifications", icon: "◈" },
   { id: "achievements", label: "Extra Achievements", icon: "✦" }
 ];
 
