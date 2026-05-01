@@ -12,279 +12,298 @@ type Project = {
   demo: string;
   usage: string[];
   verify: string[];
+  featured?: boolean;
+  concepts?: string;
 };
 
 const projects: Project[] = [
   {
     title: "Network Monitoring & API Performance Analyzer",
     description:
-      "Built a full-stack monitoring platform that tracks API and website health in near real time. It periodically sends HTTP checks to configured URLs, records response latency, status codes, uptime/failure states, and visualizes trends in an interactive dashboard.",
+      "Designed a network monitoring system to analyze API and website performance by tracking response latency, status codes, and uptime in real time. Implemented periodic health checks and visualized system behavior through an interactive dashboard.",
     stack: [
       "Next.js",
       "TypeScript",
+      "HTTP",
+      "Latency",
       "API Monitoring",
-      "HTTP Health Checks",
-      "Performance Analytics",
-      "Dashboard"
+      "System Design"
     ],
     github: "https://github.com/RevuKavitha/Network-Monitoring-API-Performance-Analyzer",
     demo: "https://network-monitoring-api-performance.vercel.app/",
     usage: [
-      "Add one or more target API or website URLs.",
-      "Start monitoring to run periodic HTTP checks.",
-      "View uptime, status, response time, and trend graphs."
+      "Add one or more API or website URLs for monitoring.",
+      "Run periodic checks to track uptime and latency.",
+      "Review performance trends and health signals in dashboard."
     ],
     verify: [
-      "Healthy endpoints show expected success status codes.",
-      "Latency trends update as monitoring cycles complete.",
-      "Failure states appear correctly for unavailable endpoints."
-    ]
+      "Status code and uptime values update for each endpoint.",
+      "Latency trends change as new checks complete.",
+      "Failed endpoints are highlighted with clear error state."
+    ],
+    featured: true,
+    concepts:
+      "Concepts: HTTP Lifecycle, Latency Analysis, Client-Server Architecture, API Monitoring"
   },
   {
     title: "Live HTTP Traffic Monitoring System",
     description:
-      "Designed a real-time HTTP traffic monitoring dashboard using FastAPI and Next.js. The system captures requests, computes live metrics, and supports simulation, filtering, WebSocket-driven updates, and SQLite persistence for traffic analysis.",
+      "Built a real-time HTTP traffic monitoring system to capture and analyze request flows, compute latency, and track system performance. Implemented middleware-based logging and live dashboard visualization for request insights.",
     stack: [
       "FastAPI",
       "Next.js",
       "WebSockets",
       "SQLite",
-      "Real-Time Analytics",
-      "Traffic Filtering"
+      "HTTP",
+      "Latency",
+      "API Monitoring",
+      "System Design"
     ],
     github: "https://github.com/RevuKavitha/Live-HTTP-Traffic-Monitoring-System",
     demo: "https://live-http-traffic-monitoring-system.vercel.app/",
     usage: [
-      "Launch monitoring or simulation mode from the dashboard.",
-      "Track live request counts, response metrics, and traffic flow.",
-      "Apply filters to inspect specific endpoints and events."
+      "Start traffic stream or simulation from the dashboard.",
+      "Track live request volume and latency metrics.",
+      "Filter request logs to inspect endpoint-level behavior."
     ],
     verify: [
-      "Live metrics update continuously during incoming traffic.",
-      "WebSocket stream reflects real-time request activity.",
-      "Stored records persist in SQLite and reload correctly."
-    ]
-  },
-  {
-    title: "Data Analysis Toolkit",
-    description:
-      "Developed an end-to-end ML system to predict customer churn and revenue trends. Applied feature engineering, model evaluation, and interactive visualizations to generate actionable business insights.",
-    stack: [
-      "Python",
-      "NumPy",
-      "Pandas",
-      "Matplotlib",
-      "Seaborn",
-      "Scikit-learn",
-      "Jupyter Notebook",
-      "Data Visualization"
+      "Live metric counters update in real time.",
+      "WebSocket stream reflects incoming request flow.",
+      "Request logs persist and reload from SQLite."
     ],
-    github: "https://github.com/RevuKavitha/libraries_project",
-    demo: "https://libraries-project.vercel.app/",
-    usage: [
-      "Upload or load dataset files for exploration.",
-      "Run preprocessing and feature analysis pipelines.",
-      "Use generated charts and summaries for insights."
-    ],
-    verify: [
-      "Dataset loads without parsing errors.",
-      "Visualizations render correctly for selected features.",
-      "Summary outputs match expected data patterns."
-    ]
-  },
-  {
-    title: "Multi-Model AI Orchestrator",
-    description:
-      "Built a benchmarking system to compare multiple LLMs (OpenAI, Claude, Gemini) based on latency, cost, and response quality. Implemented scoring mechanisms and interactive dashboards for model evaluation.",
-    stack: [
-      "Python",
-      "FastAPI",
-      "LLMs",
-      "Prompt Engineering",
-      "Model Routing"
-    ],
-    github: "https://github.com/RevuKavitha/multi_model_ai",
-    demo: "https://muti-model-ai-fyjo.vercel.app/",
-    usage: [
-      "Enter a task prompt from the UI.",
-      "System routes requests to suitable models.",
-      "Compare responses and use the best output."
-    ],
-    verify: [
-      "Model routing selects multiple providers.",
-      "Responses return with low latency.",
-      "Fallback behavior works when one model fails."
-    ]
-  },
-  {
-    title: "MCP AI Assistant",
-    description:
-      "Designed a tool-calling AI assistant using MCP principles to dynamically select and execute tools like web search and document retrieval. Enabled context-aware responses through structured LLM interaction loops.",
-    stack: [
-      "Python",
-      "MCP",
-      "AI Agents",
-      "Automation",
-      "Tool Calling",
-      "API Integration"
-    ],
-    github: "https://github.com/RevuKavitha/mcp_ai_assistant",
-    demo: "https://mcp-ai-assistant-amber.vercel.app/",
-    usage: [
-      "Ask assistant to execute a workflow task.",
-      "Assistant invokes connected tools via MCP.",
-      "Review generated output and action logs."
-    ],
-    verify: [
-      "Tool calls trigger with correct parameters.",
-      "Assistant returns context-aware responses.",
-      "End-to-end workflow completes successfully."
-    ]
-  },
-  {
-    title: "Deep Learning Model Lab",
-    description:
-      "Developed a multimodal AI application using BLIP/LLaVA to answer questions about images. Integrated FastAPI with Hugging Face Transformers for efficient real-time inference.",
-    stack: [
-      "Python",
-      "TensorFlow",
-      "Neural Networks",
-      "Model Training",
-      "Hyperparameter Tuning"
-    ],
-    github: "https://github.com/RevuKavitha/ai_dl",
-    demo: "https://ai-dl.vercel.app/",
-    usage: [
-      "Select or upload an input image.",
-      "Run deep learning model inference on the image.",
-      "Review predicted output and confidence score."
-    ],
-    verify: [
-      "Image upload/selection works without errors.",
-      "Prediction result appears for each selected image.",
-      "Model output changes correctly for different images."
-    ]
-  },
-  {
-    title: "ML Stock Forecasting Engine",
-    description:
-      "Built a machine learning system using Pandas, NumPy, and Scikit-learn to forecast stock trends. Engineered time-series features and visualized predictions with interactive dashboards and trend analysis.",
-    stack: [
-      "Python",
-      "Pandas",
-      "NumPy",
-      "Scikit-learn",
-      "Time Series",
-      "Feature Engineering",
-      "Forecasting"
-    ],
-    github: "https://github.com/RevuKavitha/ai_ml_stock",
-    demo: "https://ai-ml-stock.vercel.app/",
-    usage: [
-      "Choose stock symbol and date range.",
-      "Generate trend analysis and predictions.",
-      "Inspect charts and forecast indicators."
-    ],
-    verify: [
-      "Historical data fetch succeeds.",
-      "Forecast graph renders with predicted values.",
-      "Key indicators update when inputs change."
-    ]
+    featured: true,
+    concepts:
+      "Concepts: HTTP Lifecycle, Latency Analysis, Client-Server Architecture, API Monitoring"
   },
   {
     title: "Intelligent Resume Screening Platform",
     description:
-      "Developed an AI-powered platform to analyze resumes and generate structured insights including strengths, weaknesses, and ATS scores. Implemented role-based interview question generation using prompt-engineered LLM pipelines.",
-    stack: [
-      "Python",
-      "NLP",
-      "Streamlit",
-      "Text Extraction",
-      "Skill Matching",
-      "Recommendation Engine"
-    ],
+      "Developed a resume intelligence system that extracts candidate signals, maps role relevance, and generates actionable screening insights. Focused on reliable text processing and structured evaluation for faster hiring decisions.",
+    stack: ["Python", "NLP", "Streamlit", "Text Extraction", "Skill Matching", "ATS Insights"],
     github: "https://github.com/RevuKavitha/resume_analyser",
     demo: "https://ai-chatbot-ai3f.vercel.app/",
     usage: [
       "Upload resume in supported format.",
-      "Run NLP analysis for skills and gaps.",
-      "Review role-fit suggestions and improvements."
+      "Run NLP-based skill and role-fit analysis.",
+      "Review ATS-oriented recommendations."
     ],
     verify: [
-      "Resume text extraction completes accurately.",
-      "Skill match score appears with suggestions.",
-      "Recommendations align with target role keywords."
+      "Resume parsing extracts content accurately.",
+      "Role-fit score appears with matched skills.",
+      "Recommendations align with target role."
     ]
   },
   {
     title: "RAG Knowledge Assistant",
     description:
-      "Built a full-stack RAG system using FastAPI, Next.js, and Ollama to enable context-aware Q&A over custom documents. Implemented PDF ingestion, embedding generation with ChromaDB, and a LangChain-based retrieval pipeline to combine semantic search with LLM reasoning.",
-    stack: [
-      "Python",
-      "RAG",
-      "LLM",
-      "Embeddings",
-      "Vector DB",
-      "Semantic Search",
-      "Context Retrieval"
-    ],
+      "Built a retrieval-powered knowledge assistant to answer user questions with grounded evidence from documents. Combined semantic retrieval and language generation for reliable, context-aware responses.",
+    stack: ["Python", "RAG", "Embeddings", "Vector DB", "Semantic Search", "LangChain"],
     github: "https://github.com/RevuKavitha/RAG",
     demo: "https://rag-seven-nu.vercel.app/",
     usage: [
-      "Ask a question in the chat interface.",
-      "System retrieves relevant context chunks.",
+      "Upload documents and ask contextual questions.",
+      "System retrieves relevant chunks from vector store.",
       "LLM answers using retrieved evidence."
     ],
     verify: [
-      "Retrieved context is shown or traceable.",
-      "Answers remain grounded in source content.",
-      "Response quality improves over base LLM output."
+      "Context retrieval maps to relevant source chunks.",
+      "Responses remain grounded to uploaded content.",
+      "Answer quality improves over base prompting."
     ]
   },
   {
-    title: "Smart Notes Knowledge Workspace",
+    title: "Multi-Model AI Orchestrator",
     description:
-      "MongoDB-powered AI note management workspace with intelligent organization, rapid retrieval, and contextual summaries.",
-    stack: [
-      "Next.js",
-      "TypeScript",
-      "MongoDB",
-      "Mongoose",
-      "AI Summarization",
-      "Search",
-      "CRUD APIs"
-    ],
-    github: "https://github.com/RevuKavitha/smart-notes-app",
-    demo: "https://mongodb-nine-peach.vercel.app/",
+      "Designed a model orchestration workflow to route prompts across multiple LLM providers and compare outputs. Focused on response quality, latency, and fallback reliability for production-style AI workflows.",
+    stack: ["Python", "FastAPI", "LLMs", "Model Routing", "Prompt Engineering"],
+    github: "https://github.com/RevuKavitha/multi_model_ai",
+    demo: "https://muti-model-ai-fyjo.vercel.app/",
     usage: [
-      "Create, edit, and organize notes by topic.",
-      "Use search and AI summarization on notes.",
-      "Persist and retrieve notes from MongoDB."
+      "Enter a task prompt from the interface.",
+      "Route requests to suitable model providers.",
+      "Compare outputs for quality and response speed."
     ],
     verify: [
-      "CRUD actions reflect instantly in UI.",
-      "Search returns relevant notes quickly.",
-      "Saved notes remain available after refresh."
+      "Routing logic dispatches to multiple providers.",
+      "Fallback works when one provider fails.",
+      "Comparative outputs include timing signals."
+    ]
+  },
+  {
+    title: "Data Analysis Toolkit",
+    description:
+      "Created a data exploration and predictive analysis toolkit to transform raw datasets into usable business insights. Emphasized clean preprocessing, feature relevance, and interpretable output visualizations.",
+    stack: ["Python", "NumPy", "Pandas", "Matplotlib", "Seaborn", "Scikit-learn"],
+    github: "https://github.com/RevuKavitha/libraries_project",
+    demo: "https://libraries-project.vercel.app/",
+    usage: [
+      "Load datasets for analysis workflow.",
+      "Run preprocessing and feature diagnostics.",
+      "Generate visual summaries and predictions."
+    ],
+    verify: [
+      "Dataset ingestion works without schema errors.",
+      "Visual outputs align with selected features.",
+      "Model summary metrics update correctly."
+    ]
+  },
+  {
+    title: "Deep Learning Model Lab",
+    description:
+      "Built a deep learning inference lab for image-driven understanding workflows. Focused on stable model execution, response consistency, and practical usage flow for multimodal experimentation.",
+    stack: ["Python", "TensorFlow", "Neural Networks", "Inference", "Model Evaluation"],
+    github: "https://github.com/RevuKavitha/ai_dl",
+    demo: "https://ai-dl.vercel.app/",
+    usage: [
+      "Select or upload an image for inference.",
+      "Run deep learning prediction pipeline.",
+      "Inspect output response and confidence."
+    ],
+    verify: [
+      "Image input pipeline processes valid files.",
+      "Inference output appears per uploaded image.",
+      "Prediction values vary with different inputs."
+    ]
+  },
+  {
+    title: "ML Stock Forecasting Engine",
+    description:
+      "Implemented a forecasting engine to model stock movement trends from historical market signals. Focused on time-series feature pipelines and robust visualization for interpretable prediction behavior.",
+    stack: ["Python", "Pandas", "NumPy", "Scikit-learn", "Time Series", "Forecasting"],
+    github: "https://github.com/RevuKavitha/ai_ml_stock",
+    demo: "https://ai-ml-stock.vercel.app/",
+    usage: [
+      "Choose symbol and historical time window.",
+      "Generate trend and forecast analysis.",
+      "Inspect charted output with projected values."
+    ],
+    verify: [
+      "Historical data retrieval succeeds.",
+      "Forecast plots render with new predictions.",
+      "Indicators update when input configuration changes."
     ]
   }
 ];
 
-const priorityProjectTitles = [
-  "Network Monitoring & API Performance Analyzer",
-  "Live HTTP Traffic Monitoring System"
-];
+function ProjectCard({ project }: { project: Project }) {
+  return (
+    <motion.div
+      whileHover={{ y: -8 }}
+      whileInView={{ opacity: [0, 1], y: [20, 0] }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.45 }}
+      className="[perspective:1200px]"
+    >
+      <TiltCard className="group">
+        <div
+          className={`relative w-full rounded-2xl [transform-style:preserve-3d] transition-transform duration-500 group-hover:[transform:rotateY(180deg)] ${
+            project.featured ? "h-[420px]" : "h-[390px]"
+          }`}
+        >
+          <article
+            className={`absolute inset-0 flex flex-col rounded-2xl border bg-slate-900/70 p-4 shadow-lg [backface-visibility:hidden] ${
+              project.featured
+                ? "border-cyan-300/60 shadow-[0_0_26px_rgba(34,211,238,0.22)]"
+                : "border-slate-700/80"
+            }`}
+          >
+            <div className="flex items-start justify-between gap-3">
+              <h3 className="text-lg font-semibold text-cyan-200">{project.title}</h3>
+              {project.featured ? (
+                <span className="rounded-full border border-cyan-200/70 bg-cyan-300/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-cyan-100">
+                  Featured
+                </span>
+              ) : null}
+            </div>
+
+            <p className="mt-3 text-sm leading-relaxed text-slate-300">{project.description}</p>
+            {project.concepts ? (
+              <p className="mt-3 text-xs leading-relaxed text-slate-400">{project.concepts}</p>
+            ) : null}
+
+            <div className="mt-4 flex flex-wrap gap-2">
+              {project.stack.slice(0, 8).map((item) => (
+                <span
+                  key={`${project.title}-${item}`}
+                  className="rounded-full border border-slate-600 px-2.5 py-1 text-[11px] text-slate-200"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-auto flex items-end gap-8 pt-6 text-sm">
+              <a
+                className="magnetic-link text-cyan-300 hover:text-cyan-200"
+                href={project.github}
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub
+              </a>
+              {project.demo ? (
+                <a
+                  className="magnetic-link text-orange-300 hover:text-orange-200"
+                  href={project.demo}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Live Preview
+                </a>
+              ) : (
+                <span className="cursor-not-allowed text-slate-500">Preview Soon</span>
+              )}
+            </div>
+          </article>
+
+          <article className="absolute inset-0 overflow-y-auto rounded-2xl border border-cyan-300/35 bg-slate-950/95 p-4 shadow-[0_0_24px_rgba(34,211,238,0.2)] [backface-visibility:hidden] [transform:rotateY(180deg)]">
+            <h3 className="text-lg font-semibold text-cyan-200">How It Works</h3>
+            <ol className="mt-4 list-inside list-decimal space-y-2 text-sm text-slate-300">
+              {project.usage.map((step) => (
+                <li key={`${project.title}-usage-${step}`}>{step}</li>
+              ))}
+            </ol>
+
+            <h4 className="mt-5 text-sm font-semibold text-emerald-300">How To Verify</h4>
+            <ol className="mt-3 list-inside list-decimal space-y-2 text-sm text-slate-300">
+              {project.verify.map((check) => (
+                <li key={`${project.title}-verify-${check}`}>{check}</li>
+              ))}
+            </ol>
+
+            <div className="mt-6 flex gap-8 text-sm">
+              <a
+                className="magnetic-link text-cyan-300 hover:text-cyan-200"
+                href={project.github}
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub
+              </a>
+              {project.demo ? (
+                <a
+                  className="magnetic-link text-orange-300 hover:text-orange-200"
+                  href={project.demo}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Live Preview
+                </a>
+              ) : (
+                <span className="cursor-not-allowed text-slate-500">Preview Soon</span>
+              )}
+            </div>
+          </article>
+        </div>
+      </TiltCard>
+    </motion.div>
+  );
+}
 
 export default function Projects() {
-  const orderedProjects = [...projects].sort((a, b) => {
-    const aRank = priorityProjectTitles.indexOf(a.title);
-    const bRank = priorityProjectTitles.indexOf(b.title);
-
-    const normalizedARank = aRank === -1 ? Number.MAX_SAFE_INTEGER : aRank;
-    const normalizedBRank = bRank === -1 ? Number.MAX_SAFE_INTEGER : bRank;
-
-    return normalizedARank - normalizedBRank;
-  });
+  const featuredProjects = projects.slice(0, 2);
+  const rowTwoProjects = projects.slice(2, 5);
+  const rowThreeProjects = projects.slice(5, 8);
 
   return (
     <section id="projects" className="px-6 py-20 sm:px-10 lg:px-20">
@@ -298,147 +317,31 @@ export default function Projects() {
           <h2 className="text-3xl font-bold text-slate-50 sm:text-4xl">Projects</h2>
         </div>
         <p className="mt-3 max-w-2xl text-slate-400">
-          A curated portfolio of AI and full-stack solutions, including deployed production-ready projects with live previews and measurable real-world impact.
+          A curated portfolio of system-driven applications, including network-aware platforms,
+          backend systems, and AI-powered solutions with real-world impact.
+        </p>
+        <p className="mt-2 max-w-2xl text-sm text-cyan-200/90">
+          Focused on building systems that are scalable, network-aware, and performance-driven.
         </p>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {orderedProjects.map((project) => (
-            <motion.div
-              key={project.title}
-              whileHover={{ y: -8 }}
-              whileInView={{ opacity: [0, 1], y: [20, 0] }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.45 }}
-              className="[perspective:1200px]"
-            >
-              <TiltCard className="group">
-                <div className="relative h-[390px] w-full rounded-2xl [transform-style:preserve-3d] transition-transform duration-500 group-hover:[transform:rotateY(180deg)]">
-                  <article className="absolute inset-0 grid grid-rows-[44px_156px_78px_20px_24px] content-start rounded-2xl border border-slate-700/80 bg-slate-900/70 p-4 shadow-lg [backface-visibility:hidden]">
-                    <h3 className="text-lg font-semibold text-cyan-200">
-                      {project.title}
-                    </h3>
-                    <p className="mt-2 overflow-y-auto pr-1 text-sm leading-relaxed text-slate-300">
-                      {project.description}
-                    </p>
-                    <div className="mt-3 overflow-hidden content-start flex flex-wrap gap-2 pr-1">
-                      {project.stack.slice(0, 6).map((item) => (
-                        <span
-                          key={`${project.title}-${item}`}
-                          className="rounded-full border border-slate-600 px-2.5 py-1 text-[11px] text-slate-200"
-                        >
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                    <p className="mt-2 text-xs text-slate-500">
-                      Hover card to view usage and testing instructions.
-                    </p>
-                    <div className="mt-10 flex items-end gap-8 text-sm">
-                      <a
-                        className="magnetic-link text-cyan-300 hover:text-cyan-200"
-                        href={project.github}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        GitHub
-                      </a>
-                      {project.demo ? (
-                        <a
-                          className="magnetic-link text-orange-300 hover:text-orange-200"
-                          href={project.demo}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          Live Preview
-                        </a>
-                      ) : (
-                        <span className="cursor-not-allowed text-slate-500">Preview Soon</span>
-                      )}
-                    </div>
-                  </article>
+        <div className="mt-10 space-y-6">
+          <div className="grid gap-6 md:grid-cols-2">
+            {featuredProjects.map((project) => (
+              <ProjectCard key={project.title} project={project} />
+            ))}
+          </div>
 
-                  <article className="absolute inset-0 overflow-y-auto rounded-2xl border border-cyan-300/35 bg-slate-950/95 p-4 shadow-[0_0_24px_rgba(34,211,238,0.2)] [backface-visibility:hidden] [transform:rotateY(180deg)]">
-                    <h3 className="text-lg font-semibold text-cyan-200">How It Works</h3>
-                    <ol className="mt-4 list-inside list-decimal space-y-2 text-sm text-slate-300">
-                      {project.usage.map((step) => (
-                        <li key={`${project.title}-usage-${step}`}>{step}</li>
-                      ))}
-                    </ol>
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {rowTwoProjects.map((project) => (
+              <ProjectCard key={project.title} project={project} />
+            ))}
+          </div>
 
-                    <h4 className="mt-5 text-sm font-semibold text-emerald-300">How To Verify</h4>
-                    <ol className="mt-3 list-inside list-decimal space-y-2 text-sm text-slate-300">
-                      {project.verify.map((check) => (
-                        <li key={`${project.title}-verify-${check}`}>{check}</li>
-                      ))}
-                    </ol>
-
-                    <div className="mt-6 flex gap-8 text-sm">
-                      <a
-                        className="magnetic-link text-cyan-300 hover:text-cyan-200"
-                        href={project.github}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        GitHub
-                      </a>
-                      {project.demo ? (
-                        <a
-                          className="magnetic-link text-orange-300 hover:text-orange-200"
-                          href={project.demo}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          Live Preview
-                        </a>
-                      ) : (
-                        <span className="cursor-not-allowed text-slate-500">Preview Soon</span>
-                      )}
-                    </div>
-                  </article>
-                </div>
-              </TiltCard>
-            </motion.div>
-          ))}
-
-          <motion.article
-            whileHover={{ y: -8, scale: 1.01 }}
-            whileInView={{ opacity: [0, 1], y: [20, 0] }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.45 }}
-            className="relative flex h-[390px] flex-col justify-between overflow-hidden rounded-2xl border border-cyan-300/40 bg-gradient-to-br from-[#0a1020] via-[#0a1424] to-[#03202a] p-4 shadow-[0_0_34px_rgba(34,211,238,0.2)]"
-          >
-            <motion.div
-              animate={{ scale: [1, 1.12, 1], opacity: [0.35, 0.5, 0.35] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="pointer-events-none absolute -right-14 -top-14 h-48 w-48 rounded-full bg-cyan-400/20 blur-3xl"
-            />
-            <motion.div
-              animate={{ scale: [1.05, 0.95, 1.05], opacity: [0.25, 0.4, 0.25] }}
-              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-              className="pointer-events-none absolute -bottom-20 -left-20 h-56 w-56 rounded-full bg-emerald-400/20 blur-3xl"
-            />
-
-            <div>
-              <h3 className="mt-3 text-2xl font-black leading-tight text-slate-100">
-                Additional Projects
-              </h3>
-              <p className="mt-4 text-sm leading-relaxed text-slate-300">
-                Explore additional repositories and production-oriented work from my GitHub profile.
-              </p>
-            </div>
-
-            <div className="space-y-3">
-              <a
-                href="https://github.com/RevuKavitha"
-                target="_blank"
-                rel="noreferrer"
-                className="magnetic-link inline-flex items-center gap-2 rounded-full border border-cyan-200/60 bg-cyan-300/10 px-4 py-2 text-sm font-semibold text-cyan-100 transition hover:border-cyan-100 hover:bg-cyan-300/20"
-              >
-                View GitHub Projects
-                <span aria-hidden>↗</span>
-              </a>
-            </div>
-          </motion.article>
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {rowThreeProjects.map((project) => (
+              <ProjectCard key={project.title} project={project} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -10,8 +10,8 @@ type Stat = {
 };
 
 const stats: Stat[] = [
-  { label: "AI-Based Projects", value: 8, suffix: "+" },
-  { label: "Certificates", value: 13, suffix: "+" },
+  { label: "Projects (AI + Systems)", value: 10, suffix: "+" },
+  { label: "Networking & Backend Focus", value: 1 },
   { label: "CGPA", value: 9.58 }
 ];
 
@@ -38,7 +38,9 @@ export default function StatsCounters() {
     () =>
       stats.map((item) => {
         const raw = item.value * progress;
-        return item.label === "CGPA" ? raw.toFixed(2) : Math.floor(raw).toString();
+        if (item.label === "CGPA") return raw.toFixed(2);
+        if (item.label === "Networking & Backend Focus") return "Core";
+        return Math.floor(raw).toString();
       }),
     [progress]
   );

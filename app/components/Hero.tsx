@@ -33,6 +33,8 @@ const mobileBubbles: Bubble[] = [
   { id: "m4", axis: "y", lane: "78%", size: 7, delay: 0.8, duration: 3.8, direction: -1 }
 ];
 
+const focusTags = ["HTTP", "APIs", "Latency", "Systems Design", "AI"];
+
 export default function Hero() {
   return (
     <section id="home" className="relative flex min-h-screen items-center overflow-hidden px-6 pb-20 pt-24 sm:px-10 lg:px-20">
@@ -90,23 +92,39 @@ export default function Hero() {
             <h1 className="text-5xl font-black leading-tight text-slate-50 sm:text-6xl lg:text-7xl">
               Hi, I&apos;m <span className="text-cyan-300">Kavitha</span>
             </h1>
-            <h2 className="text-2xl font-semibold text-slate-300 sm:text-3xl">AI Developer</h2>
+            <h2 className="text-2xl font-semibold text-slate-300 sm:text-3xl">
+              Software Engineer | AI Systems &amp; Network-Aware Applications
+            </h2>
             <div className="max-w-3xl">
               <p className="text-base text-slate-400 sm:text-lg">
-                Aspiring Data Science and AI Engineer with strong foundations in Python,
-                Machine Learning, and Statistics. Passionate about building intelligent,
-                data-driven solutions for real-world problems and contributing to advanced AI
-                applications through hands-on development.
+                I build intelligent and scalable systems with strong foundations in backend
+                development, machine learning, and computer networks. Passionate about designing
+                real-world applications that focus on performance, reliability, and how systems
+                communicate over the web.
               </p>
+              <p className="mt-3 text-sm font-medium text-cyan-200/90 sm:text-base">
+                Focused on building systems that are not only intelligent, but also efficient,
+                reliable, and network-aware.
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {focusTags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-cyan-300/45 bg-cyan-400/10 px-3 py-1 text-xs font-medium tracking-wide text-cyan-100 shadow-[0_0_12px_rgba(34,211,238,0.12)]"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 
           <div className="flex flex-wrap items-center gap-4">
             <a
-              href="#journey"
+              href="#projects"
               className="rounded-full bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition hover:scale-105 hover:bg-cyan-300"
             >
-              View Journey
+              View Projects
             </a>
             <button
               type="button"
@@ -137,7 +155,7 @@ export default function Hero() {
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(56,189,248,0.2),transparent_45%),radial-gradient(circle_at_78%_80%,rgba(168,85,247,0.18),transparent_48%)]" />
             </div>
             <p className="px-2 pb-2 pt-4 text-center text-sm text-slate-300">
-              AI Developer | Full-Stack Engineer
+              Software Engineer | AI &amp; Network Systems
             </p>
           </div>
         </div>
