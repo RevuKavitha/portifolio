@@ -127,12 +127,12 @@ function getCategoryClass(priority: SkillCategory["priority"]) {
 function SkillChip({ skill }: { skill: SkillItem }) {
   return (
     <motion.div
-      whileHover={{ y: -3, scale: 1.03 }}
-      className="group relative overflow-hidden rounded-xl border border-cyan-300/25 bg-gradient-to-b from-slate-900/95 via-slate-900/90 to-[#111a36] px-3 py-2 transition hover:border-cyan-300/45 hover:shadow-[0_0_14px_rgba(34,211,238,0.16)]"
+      whileHover={{ y: -2, scale: 1.02 }}
+      className="group relative overflow-hidden rounded-xl border border-cyan-300/25 bg-gradient-to-b from-slate-900/95 via-slate-900/90 to-[#111a36] px-3 py-2.5 transition hover:border-cyan-300/45 hover:shadow-[0_0_14px_rgba(34,211,238,0.16)]"
     >
       <div className="flex items-center gap-2">
-        <skill.Icon className="h-4 w-4 text-cyan-300" />
-        <p className="text-sm font-medium text-slate-200">{skill.label}</p>
+        <skill.Icon className="h-3.5 w-3.5 text-cyan-300" />
+        <p className="text-[13px] font-medium leading-snug text-slate-200">{skill.label}</p>
       </div>
       {skill.tag ? (
         <p className="mt-1 text-[10px] uppercase tracking-[0.08em] text-cyan-200/90">{skill.tag}</p>
@@ -157,7 +157,7 @@ function SkillCategoryCard({ category }: { category: SkillCategory }) {
         <h3 className="text-base font-semibold text-cyan-200 sm:text-lg">{category.title}</h3>
         <p className="mt-1 text-xs text-slate-400 sm:text-sm">{category.subtitle}</p>
       </div>
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
         {category.skills.map((skill) => (
           <SkillChip key={`${category.title}-${skill.label}`} skill={skill} />
         ))}
@@ -186,8 +186,8 @@ export default function Skills() {
         </p>
 
         <div className="mt-10 rounded-3xl border border-slate-700/80 bg-slate-900/65 p-5 shadow-[0_18px_48px_rgba(2,6,23,0.35)] backdrop-blur-xl sm:p-6">
-          <div className="space-y-5">
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="space-y-6">
+          <div className="grid gap-6 lg:grid-cols-2">
             {primary.map((category) => (
               <SkillCategoryCard key={category.title} category={category} />
             ))}
