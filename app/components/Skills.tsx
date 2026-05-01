@@ -116,19 +116,19 @@ const categories: SkillCategory[] = [
 
 function getCategoryClass(priority: SkillCategory["priority"]) {
   if (priority === "high") {
-    return "border-cyan-300/45 bg-gradient-to-br from-slate-900/95 via-slate-900/88 to-[#0f1b34] shadow-[0_0_30px_rgba(34,211,238,0.18)]";
+    return "border-cyan-300/35 bg-slate-900/72 shadow-[0_0_22px_rgba(34,211,238,0.14)]";
   }
   if (priority === "low") {
-    return "border-slate-700/80 bg-slate-900/50 shadow-[0_16px_32px_rgba(2,6,23,0.3)]";
+    return "border-slate-700/80 bg-slate-900/56 shadow-[0_14px_28px_rgba(2,6,23,0.28)]";
   }
-  return "border-slate-700/80 bg-slate-900/65 shadow-[0_16px_32px_rgba(2,6,23,0.35)]";
+  return "border-slate-700/80 bg-slate-900/66 shadow-[0_14px_28px_rgba(2,6,23,0.32)]";
 }
 
 function SkillChip({ skill }: { skill: SkillItem }) {
   return (
     <motion.div
       whileHover={{ y: -3, scale: 1.03 }}
-      className="group relative overflow-hidden rounded-xl border border-slate-600/80 bg-slate-950/80 px-3 py-2 transition hover:border-cyan-300/60 hover:shadow-[0_0_14px_rgba(34,211,238,0.18)]"
+      className="group relative overflow-hidden rounded-xl border border-cyan-300/25 bg-gradient-to-b from-slate-900/95 via-slate-900/90 to-[#111a36] px-3 py-2 transition hover:border-cyan-300/45 hover:shadow-[0_0_14px_rgba(34,211,238,0.16)]"
     >
       <div className="flex items-center gap-2">
         <skill.Icon className="h-4 w-4 text-cyan-300" />
@@ -138,7 +138,7 @@ function SkillChip({ skill }: { skill: SkillItem }) {
         <p className="mt-1 text-[10px] uppercase tracking-[0.08em] text-cyan-200/90">{skill.tag}</p>
       ) : null}
       {skill.usedIn ? (
-        <p className="pointer-events-none absolute inset-x-2 bottom-1 translate-y-3 text-[10px] text-emerald-300/0 transition duration-200 group-hover:translate-y-0 group-hover:text-emerald-300/90">
+        <p className="pointer-events-none absolute inset-x-2 bottom-1 translate-y-3 text-[10px] text-cyan-200/0 transition duration-200 group-hover:translate-y-0 group-hover:text-cyan-200/85">
           {skill.usedIn}
         </p>
       ) : null}
@@ -151,13 +151,13 @@ function SkillCategoryCard({ category }: { category: SkillCategory }) {
     <motion.article
       whileInView={{ opacity: [0, 1], y: [24, 0] }}
       viewport={{ once: true, amount: 0.25 }}
-      className={`rounded-2xl border p-5 backdrop-blur-xl sm:p-6 ${getCategoryClass(category.priority)}`}
+      className={`rounded-2xl border p-4 backdrop-blur-xl sm:p-5 ${getCategoryClass(category.priority)}`}
     >
       <div className="mb-4">
-        <h3 className="text-lg font-semibold text-cyan-200 sm:text-xl">{category.title}</h3>
-        <p className="mt-1 text-sm text-slate-400">{category.subtitle}</p>
+        <h3 className="text-base font-semibold text-cyan-200 sm:text-lg">{category.title}</h3>
+        <p className="mt-1 text-xs text-slate-400 sm:text-sm">{category.subtitle}</p>
       </div>
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {category.skills.map((skill) => (
           <SkillChip key={`${category.title}-${skill.label}`} skill={skill} />
         ))}
@@ -185,16 +185,18 @@ export default function Skills() {
           Focused on building network-aware backend systems and observability tools.
         </p>
 
-        <div className="mt-10 space-y-6">
+        <div className="mt-10 rounded-3xl border border-slate-700/80 bg-slate-900/65 p-5 shadow-[0_18px_48px_rgba(2,6,23,0.35)] backdrop-blur-xl sm:p-6">
+          <div className="space-y-5">
           <div className="grid gap-6 md:grid-cols-2">
             {primary.map((category) => (
               <SkillCategoryCard key={category.title} category={category} />
             ))}
           </div>
-          <div className="grid gap-6">
+          <div className="grid gap-5">
             {secondary.map((category) => (
               <SkillCategoryCard key={category.title} category={category} />
             ))}
+          </div>
           </div>
         </div>
       </div>
