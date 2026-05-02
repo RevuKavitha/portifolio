@@ -4,8 +4,9 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import type { IconType } from "react-icons";
 import { BiScatterChart } from "react-icons/bi";
-import { FaDatabase, FaJava, FaNetworkWired, FaServer } from "react-icons/fa6";
+import { FaJava, FaNetworkWired, FaServer } from "react-icons/fa6";
 import {
+  SiApachecassandra,
   SiC,
   SiCplusplus,
   SiDocker,
@@ -16,6 +17,7 @@ import {
   SiMongodb,
   SiMysql,
   SiNextdotjs,
+  SiNeo4J,
   SiNodedotjs,
   SiNumpy,
   SiPandas,
@@ -71,8 +73,8 @@ const categories: SkillCategory[] = [
     skills: [
       { label: "MySQL", Icon: SiMysql, color: "text-sky-300" },
       { label: "MongoDB", Icon: SiMongodb, color: "text-fuchsia-400" },
-      { label: "Cassandra", Icon: FaDatabase, color: "text-cyan-300", tag: "Distributed DB" },
-      { label: "Neo4j", Icon: FaDatabase, color: "text-violet-400", tag: "Graph / Network DB" }
+      { label: "Cassandra", Icon: SiApachecassandra, color: "text-cyan-300", tag: "Distributed DB" },
+      { label: "Neo4j", Icon: SiNeo4J, color: "text-violet-400", tag: "Graph / Network DB" }
     ]
   },
   {
@@ -125,10 +127,10 @@ function SkillTile({ skill }: { skill: SkillItem }) {
   return (
     <motion.div
       whileHover={{ y: -2, scale: 1.02 }}
-      className="group flex min-h-[96px] flex-col items-center justify-center rounded-2xl border border-cyan-300/25 bg-gradient-to-b from-slate-900/95 via-slate-900/92 to-[#111a36] px-3 py-3 text-center shadow-[0_12px_24px_rgba(2,6,23,0.32)] transition hover:border-cyan-300/45 hover:shadow-[0_0_16px_rgba(34,211,238,0.16)]"
+      className="group flex min-h-[72px] flex-col items-center justify-center rounded-2xl border border-cyan-300/25 bg-gradient-to-b from-slate-900/95 via-slate-900/92 to-[#111a36] px-3 py-2 text-center shadow-[0_10px_20px_rgba(2,6,23,0.3)] transition hover:border-cyan-300/45 hover:shadow-[0_0_16px_rgba(34,211,238,0.16)]"
     >
-      <skill.Icon className={`h-7 w-7 ${skill.color}`} />
-      <p className="mt-2 text-sm font-medium text-slate-200">{skill.label}</p>
+      <skill.Icon className={`h-6 w-6 ${skill.color}`} />
+      <p className="mt-1.5 text-sm font-medium text-slate-200">{skill.label}</p>
       {skill.tag ? <p className="mt-1 text-[10px] text-cyan-200/80">{skill.tag}</p> : null}
     </motion.div>
   );
