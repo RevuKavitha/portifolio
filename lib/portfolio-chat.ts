@@ -7,9 +7,9 @@ export type ChatTurn = {
 
 const botKnowledge = {
   projects:
-    "I have built 8+ AI-based and full-stack projects including RAG Knowledge Assistant, Multi-Model AI Orchestrator, MCP AI Assistant, and Intelligent Resume Screening Platform. You can view code on GitHub and live previews in the Projects section.",
+    "I have built 10+ projects with strong backend, networking, and AI depth. Key builds include Network Monitoring & API Performance Analyzer, Live HTTP Traffic Monitoring System, Intelligent Resume Screening Platform, RAG Knowledge Assistant, and Multi-Model AI Orchestrator. You can explore code and live demos in the Projects section.",
   skills:
-    "Core skills include Python, FastAPI, Next.js, TypeScript, LLMs, RAG, embeddings, vector databases, NLP, and machine learning with Scikit-learn and TensorFlow.",
+    "Core strengths include networking-aware backend engineering (HTTP/REST, latency analysis, API monitoring, observability), Python/FastAPI/Next.js development, databases (MySQL, MongoDB, Cassandra, Neo4j), and applied AI/ML.",
   timeline:
     "Academic journey: 10th (2018, GPA 9.2), 12th (2020, GPA 8.0), B.Tech (2024, CGPA 8.13), and currently M.Tech with first semester CGPA 9.58.",
   contact:
@@ -17,7 +17,7 @@ const botKnowledge = {
   certifications:
     "I hold professional and technical certifications in web development, backend, frontend, Hadoop, SQL, LLMs & Agentic AI, and Linux, along with extra achievements.",
   fallback:
-    "I can help with projects, skills, certifications, academic timeline, and contact details. Try asking: 'What AI projects did you build?'"
+    "I can help with projects, skills, certifications, academic timeline, and contact details. Try asking: 'What networking and backend projects did you build?'"
 };
 
 export function getPortfolioFallbackReply(input: string): string {
@@ -71,7 +71,7 @@ Primary goals:
 
 Portfolio context:
 - Name: Revu Kavitha
-- Focus: AI and product-focused builds
+- Focus: Software engineering with backend systems, networking awareness, and AI-enabled solutions
 - Contact:
   - Email: revukavitha789@gmail.com
   - GitHub: https://github.com/RevuKavitha
@@ -82,6 +82,8 @@ Portfolio context:
   - B.Tech: 2024, Puducherry Technological University, CGPA 8.13
   - M.Tech: Present, Puducherry Technological University, 1st semester CGPA 9.58
 - Key projects include:
+  - Network Monitoring & API Performance Analyzer
+  - Live HTTP Traffic Monitoring System
   - Data Analysis Toolkit
   - Multi-Model AI Orchestrator
   - MCP AI Assistant
@@ -91,9 +93,11 @@ Portfolio context:
   - RAG Knowledge Assistant
   - Smart Notes Knowledge Workspace
 - Technical stack:
-  - Python, FastAPI, Next.js, TypeScript
-  - LLMs, RAG, embeddings, vector DB, semantic search
-  - NLP, Scikit-learn, TensorFlow, Streamlit
+  - Networking & systems: HTTP/HTTPS, REST APIs, latency analysis, API monitoring, request lifecycle, observability
+  - Backend: Python, FastAPI, Node.js, middleware systems
+  - Databases: MySQL, MongoDB, Cassandra (distributed DB), Neo4j (graph/network DB)
+  - Frontend: Next.js, React, TypeScript
+  - AI/ML: TensorFlow, Scikit-learn, Pandas, NumPy
 - Certifications:
   - Web Development, Backend/Frontend Web Development
   - Hadoop, SQL, LLMs & Agentic AI, Linux

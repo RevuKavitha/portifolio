@@ -182,6 +182,42 @@ const projects: Project[] = [
       "Forecast plots render with new predictions.",
       "Indicators update when input configuration changes."
     ]
+  },
+  {
+    title: "MCP AI Assistant",
+    description:
+      "Designed an assistant workflow that orchestrates tool calls to complete multi-step tasks with contextual reasoning. Focused on reliable API integration, execution control, and traceable automation outputs.",
+    stack: ["Python", "MCP", "AI Agents", "Tool Calling", "API Integration", "Automation"],
+    github: "https://github.com/RevuKavitha/mcp_ai_assistant",
+    demo: "https://mcp-ai-assistant-amber.vercel.app/",
+    usage: [
+      "Submit a workflow request from the assistant interface.",
+      "Assistant selects and executes tools through MCP flow.",
+      "Review generated output and tool execution details."
+    ],
+    verify: [
+      "Tool calls are triggered with valid parameters.",
+      "Workflow completes with contextual responses.",
+      "Execution trace reflects each step correctly."
+    ]
+  },
+  {
+    title: "Smart Notes Knowledge Workspace",
+    description:
+      "Built a knowledge workspace for organizing notes with searchable storage and structured retrieval. Emphasized reliable persistence, fast lookup, and clean user flow for daily information management.",
+    stack: ["Next.js", "TypeScript", "MongoDB", "Mongoose", "Search", "CRUD APIs"],
+    github: "https://github.com/RevuKavitha/smart-notes-app",
+    demo: "https://mongodb-nine-peach.vercel.app/",
+    usage: [
+      "Create and organize notes by topic.",
+      "Search and retrieve notes quickly from the workspace.",
+      "Update or remove entries with persistent storage."
+    ],
+    verify: [
+      "Create/edit/delete operations reflect in UI instantly.",
+      "Saved notes remain after refresh and relogin.",
+      "Search returns relevant notes for keyword queries."
+    ]
   }
 ];
 
@@ -301,9 +337,13 @@ function ProjectCard({ project }: { project: Project }) {
 }
 
 export default function Projects() {
-  const featuredProjects = projects.slice(0, 2);
-  const rowTwoProjects = projects.slice(2, 5);
-  const rowThreeProjects = projects.slice(5, 8);
+  const featuredProjects = projects.filter((project) => project.featured);
+  const nonFeaturedProjects = projects.filter((project) => !project.featured);
+
+  const rows: Project[][] = [];
+  for (let i = 0; i < nonFeaturedProjects.length; i += 3) {
+    rows.push(nonFeaturedProjects.slice(i, i + 3));
+  }
 
   return (
     <section id="projects" className="px-6 py-20 sm:px-10 lg:px-20">
@@ -331,17 +371,13 @@ export default function Projects() {
             ))}
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {rowTwoProjects.map((project) => (
-              <ProjectCard key={project.title} project={project} />
-            ))}
-          </div>
-
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {rowThreeProjects.map((project) => (
-              <ProjectCard key={project.title} project={project} />
-            ))}
-          </div>
+          {rows.map((row, rowIndex) => (
+            <div key={`row-${rowIndex + 1}`} className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+              {row.map((project) => (
+                <ProjectCard key={project.title} project={project} />
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     </section>

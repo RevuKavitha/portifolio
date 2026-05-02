@@ -92,25 +92,23 @@ export default function Hero() {
             <h1 className="text-5xl font-black leading-tight text-slate-50 sm:text-6xl lg:text-7xl">
               Hi, I&apos;m <span className="text-cyan-300">Kavitha</span>
             </h1>
-            <h2 className="text-2xl font-semibold text-slate-300 sm:text-3xl">
+            <h2 className="max-w-4xl text-xl font-semibold leading-snug text-slate-300 sm:text-2xl lg:text-[2rem]">
               Software Engineer | AI Systems &amp; Network-Aware Applications
             </h2>
-            <div className="max-w-3xl">
-              <p className="text-base text-slate-400 sm:text-lg">
-                I build intelligent and scalable systems with strong foundations in backend
-                development, machine learning, and computer networks. Passionate about designing
-                real-world applications that focus on performance, reliability, and how systems
-                communicate over the web.
+            <div className="max-w-[52rem] space-y-3">
+              <p className="text-base leading-relaxed text-slate-400 sm:text-lg">
+                I build intelligent and scalable software systems with strong foundations in
+                backend engineering, machine learning, and computer networks.
               </p>
-              <p className="mt-3 text-sm font-medium text-cyan-200/90 sm:text-base">
-                Focused on building systems that are not only intelligent, but also efficient,
-                reliable, and network-aware.
+              <p className="text-sm font-medium leading-relaxed text-cyan-200/90 sm:text-base">
+                I focus on performance, reliability, and network-aware architecture for
+                real-world applications.
               </p>
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="pt-1 flex flex-wrap gap-2">
                 {focusTags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-cyan-300/45 bg-cyan-400/10 px-3 py-1 text-xs font-medium tracking-wide text-cyan-100 shadow-[0_0_12px_rgba(34,211,238,0.12)]"
+                    className="rounded-full border border-cyan-300/40 bg-cyan-400/10 px-3 py-1 text-[11px] font-medium tracking-wide text-cyan-100 shadow-[0_0_10px_rgba(34,211,238,0.1)]"
                   >
                     {tag}
                   </span>
