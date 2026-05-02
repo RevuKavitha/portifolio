@@ -29,14 +29,14 @@ import {
 type SkillItem = {
   label: string;
   Icon: IconType;
+  color: string;
   tag?: string;
-  usedIn?: string;
 };
 
 type SkillCategory = {
   title: string;
   subtitle: string;
-  priority: "high" | "normal" | "low";
+  priority?: "high" | "normal" | "low";
   skills: SkillItem[];
 };
 
@@ -46,12 +46,12 @@ const categories: SkillCategory[] = [
     subtitle: "Core focus area for system behavior, traffic flow, and reliability",
     priority: "high",
     skills: [
-      { label: "HTTP/HTTPS", Icon: FaNetworkWired, usedIn: "Used in NetPulse" },
-      { label: "REST APIs", Icon: FaNetworkWired, usedIn: "Used in NetScope" },
-      { label: "Latency Analysis", Icon: FaNetworkWired, usedIn: "Used in NetPulse" },
-      { label: "API Monitoring", Icon: FaNetworkWired, usedIn: "Used in NetScope" },
-      { label: "Request Lifecycle", Icon: FaNetworkWired, usedIn: "Used in NetPulse" },
-      { label: "Observability", Icon: FaNetworkWired, tag: "Logs + Metrics", usedIn: "Used in NetScope" }
+      { label: "HTTP/HTTPS", Icon: FaNetworkWired, color: "text-cyan-400" },
+      { label: "REST APIs", Icon: FaNetworkWired, color: "text-cyan-300" },
+      { label: "Latency Analysis", Icon: FaNetworkWired, color: "text-violet-400" },
+      { label: "API Monitoring", Icon: FaNetworkWired, color: "text-fuchsia-400" },
+      { label: "Request Lifecycle", Icon: FaNetworkWired, color: "text-orange-400" },
+      { label: "Observability", Icon: FaNetworkWired, color: "text-cyan-300", tag: "Logs + Metrics" }
     ]
   },
   {
@@ -59,33 +59,31 @@ const categories: SkillCategory[] = [
     subtitle: "Service development, middleware, and API architecture",
     priority: "high",
     skills: [
-      { label: "Python", Icon: SiPython },
-      { label: "FastAPI", Icon: SiFastapi, usedIn: "Used in NetPulse" },
-      { label: "Node.js", Icon: SiNodedotjs },
-      { label: "Middleware Systems", Icon: FaServer, usedIn: "Used in NetPulse" }
+      { label: "Python", Icon: SiPython, color: "text-cyan-400" },
+      { label: "FastAPI", Icon: SiFastapi, color: "text-orange-400" },
+      { label: "Node.js", Icon: SiNodedotjs, color: "text-cyan-300" },
+      { label: "Middleware", Icon: FaServer, color: "text-violet-400" }
     ]
   },
   {
     title: "Databases & Storage",
     subtitle: "Operational and distributed data modeling",
-    priority: "normal",
     skills: [
-      { label: "MySQL", Icon: SiMysql },
-      { label: "MongoDB", Icon: SiMongodb },
-      { label: "Cassandra", Icon: FaDatabase, tag: "Distributed DB" },
-      { label: "Neo4j", Icon: FaDatabase, tag: "Graph / Network DB" }
+      { label: "MySQL", Icon: SiMysql, color: "text-sky-300" },
+      { label: "MongoDB", Icon: SiMongodb, color: "text-fuchsia-400" },
+      { label: "Cassandra", Icon: FaDatabase, color: "text-cyan-300", tag: "Distributed DB" },
+      { label: "Neo4j", Icon: FaDatabase, color: "text-violet-400", tag: "Graph / Network DB" }
     ]
   },
   {
     title: "Frontend & Visualization",
     subtitle: "Responsive interfaces and data-driven UI presentation",
-    priority: "normal",
     skills: [
-      { label: "Next.js", Icon: SiNextdotjs },
-      { label: "React", Icon: SiReact },
-      { label: "TypeScript", Icon: SiTypescript },
-      { label: "JavaScript", Icon: SiJavascript },
-      { label: "Seaborn", Icon: BiScatterChart }
+      { label: "Next.js", Icon: SiNextdotjs, color: "text-cyan-300" },
+      { label: "React", Icon: SiReact, color: "text-violet-400" },
+      { label: "TypeScript", Icon: SiTypescript, color: "text-cyan-400" },
+      { label: "JavaScript", Icon: SiJavascript, color: "text-sky-400" },
+      { label: "Seaborn", Icon: BiScatterChart, color: "text-violet-400" }
     ]
   },
   {
@@ -93,73 +91,61 @@ const categories: SkillCategory[] = [
     subtitle: "Applied ML capabilities supporting intelligent system features",
     priority: "low",
     skills: [
-      { label: "TensorFlow", Icon: SiTensorflow },
-      { label: "Scikit-learn", Icon: SiScikitlearn },
-      { label: "Pandas", Icon: SiPandas },
-      { label: "NumPy", Icon: SiNumpy }
+      { label: "TensorFlow", Icon: SiTensorflow, color: "text-fuchsia-400" },
+      { label: "Scikit-learn", Icon: SiScikitlearn, color: "text-sky-400" },
+      { label: "Pandas", Icon: SiPandas, color: "text-cyan-300" },
+      { label: "NumPy", Icon: SiNumpy, color: "text-cyan-400" }
     ]
   },
   {
     title: "Tools",
     subtitle: "Delivery, collaboration, and version control workflow",
-    priority: "normal",
     skills: [
-      { label: "Docker", Icon: SiDocker },
-      { label: "Git", Icon: SiGit },
-      { label: "GitHub", Icon: SiGithub },
-      { label: "C", Icon: SiC },
-      { label: "C++", Icon: SiCplusplus },
-      { label: "Java", Icon: FaJava }
+      { label: "Docker", Icon: SiDocker, color: "text-orange-400" },
+      { label: "Git", Icon: SiGit, color: "text-cyan-300" },
+      { label: "GitHub", Icon: SiGithub, color: "text-cyan-400" },
+      { label: "C", Icon: SiC, color: "text-violet-400" },
+      { label: "C++", Icon: SiCplusplus, color: "text-fuchsia-400" },
+      { label: "Java", Icon: FaJava, color: "text-orange-400" }
     ]
   }
 ];
 
-function getCategoryClass(priority: SkillCategory["priority"]) {
+function categoryClass(priority: SkillCategory["priority"]) {
   if (priority === "high") {
-    return "border-cyan-300/35 bg-slate-900/72 shadow-[0_0_22px_rgba(34,211,238,0.14)]";
+    return "border-cyan-300/40 bg-slate-900/70 shadow-[0_0_20px_rgba(34,211,238,0.12)]";
   }
   if (priority === "low") {
-    return "border-slate-700/80 bg-slate-900/56 shadow-[0_14px_28px_rgba(2,6,23,0.28)]";
+    return "border-slate-700/80 bg-slate-900/55 shadow-[0_12px_26px_rgba(2,6,23,0.28)]";
   }
-  return "border-slate-700/80 bg-slate-900/66 shadow-[0_14px_28px_rgba(2,6,23,0.32)]";
+  return "border-slate-700/80 bg-slate-900/65 shadow-[0_14px_28px_rgba(2,6,23,0.32)]";
 }
 
-function SkillChip({ skill }: { skill: SkillItem }) {
+function SkillTile({ skill }: { skill: SkillItem }) {
   return (
     <motion.div
       whileHover={{ y: -2, scale: 1.02 }}
-      className="group relative overflow-hidden rounded-xl border border-cyan-300/25 bg-gradient-to-b from-slate-900/95 via-slate-900/90 to-[#111a36] px-3 py-2.5 transition hover:border-cyan-300/45 hover:shadow-[0_0_14px_rgba(34,211,238,0.16)]"
+      className="group flex min-h-[96px] flex-col items-center justify-center rounded-2xl border border-cyan-300/25 bg-gradient-to-b from-slate-900/95 via-slate-900/92 to-[#111a36] px-3 py-3 text-center shadow-[0_12px_24px_rgba(2,6,23,0.32)] transition hover:border-cyan-300/45 hover:shadow-[0_0_16px_rgba(34,211,238,0.16)]"
     >
-      <div className="flex items-center gap-2">
-        <skill.Icon className="h-3.5 w-3.5 text-cyan-300" />
-        <p className="text-[13px] font-medium leading-snug text-slate-200">{skill.label}</p>
-      </div>
-      {skill.tag ? (
-        <p className="mt-1 text-[10px] uppercase tracking-[0.08em] text-cyan-200/90">{skill.tag}</p>
-      ) : null}
-      {skill.usedIn ? (
-        <p className="pointer-events-none absolute inset-x-2 bottom-1 translate-y-3 text-[10px] text-cyan-200/0 transition duration-200 group-hover:translate-y-0 group-hover:text-cyan-200/85">
-          {skill.usedIn}
-        </p>
-      ) : null}
+      <skill.Icon className={`h-7 w-7 ${skill.color}`} />
+      <p className="mt-2 text-sm font-medium text-slate-200">{skill.label}</p>
+      {skill.tag ? <p className="mt-1 text-[10px] text-cyan-200/80">{skill.tag}</p> : null}
     </motion.div>
   );
 }
 
-function SkillCategoryCard({ category }: { category: SkillCategory }) {
+function CategoryBlock({ category }: { category: SkillCategory }) {
   return (
     <motion.article
-      whileInView={{ opacity: [0, 1], y: [24, 0] }}
+      whileInView={{ opacity: [0, 1], y: [14, 0] }}
       viewport={{ once: true, amount: 0.25 }}
-      className={`rounded-2xl border p-4 backdrop-blur-xl sm:p-5 ${getCategoryClass(category.priority)}`}
+      className={`rounded-2xl border p-4 sm:p-5 ${categoryClass(category.priority)}`}
     >
-      <div className="mb-4">
-        <h3 className="text-base font-semibold text-cyan-200 sm:text-lg">{category.title}</h3>
-        <p className="mt-1 text-xs text-slate-400 sm:text-sm">{category.subtitle}</p>
-      </div>
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
+      <h3 className="text-base font-semibold text-cyan-200 sm:text-lg">{category.title}</h3>
+      <p className="mt-1 text-xs text-slate-400 sm:text-sm">{category.subtitle}</p>
+      <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 xl:grid-cols-4">
         {category.skills.map((skill) => (
-          <SkillChip key={`${category.title}-${skill.label}`} skill={skill} />
+          <SkillTile key={`${category.title}-${skill.label}`} skill={skill} />
         ))}
       </div>
     </motion.article>
@@ -187,16 +173,16 @@ export default function Skills() {
 
         <div className="mt-10 rounded-3xl border border-slate-700/80 bg-slate-900/65 p-5 shadow-[0_18px_48px_rgba(2,6,23,0.35)] backdrop-blur-xl sm:p-6">
           <div className="space-y-6">
-          <div className="grid gap-6 lg:grid-cols-2">
-            {primary.map((category) => (
-              <SkillCategoryCard key={category.title} category={category} />
-            ))}
-          </div>
-          <div className="grid gap-6 lg:grid-cols-2">
-            {secondary.map((category) => (
-              <SkillCategoryCard key={category.title} category={category} />
-            ))}
-          </div>
+            <div className="grid gap-6 lg:grid-cols-2">
+              {primary.map((category) => (
+                <CategoryBlock key={category.title} category={category} />
+              ))}
+            </div>
+            <div className="grid gap-6 lg:grid-cols-2">
+              {secondary.map((category) => (
+                <CategoryBlock key={category.title} category={category} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -92,9 +92,6 @@ export default function Hero() {
             <h1 className="text-5xl font-black leading-tight text-slate-50 sm:text-6xl lg:text-7xl">
               Hi, I&apos;m <span className="text-cyan-300">Kavitha</span>
             </h1>
-            <h2 className="max-w-4xl text-xl font-semibold leading-snug text-slate-300 sm:text-2xl lg:text-[2rem]">
-              Software Engineer | AI Systems &amp; Network-Aware Applications
-            </h2>
             <div className="max-w-[52rem] space-y-3">
               <p className="text-base leading-relaxed text-slate-400 sm:text-lg">
                 I build intelligent and scalable software systems with strong foundations in

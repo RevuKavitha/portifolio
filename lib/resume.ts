@@ -1,5 +1,5 @@
-export const RESUME_FILENAME = "Revu_Kavitha_Resume.pdf";
-export const RESUME_PUBLIC_PATH = `/${RESUME_FILENAME}`;
+export const RESUME_FILENAME = "Revu-Kavitha-resume.pdf";
+export const RESUME_PUBLIC_PATH = `/${RESUME_FILENAME}?v=2026-05-02`;
 
 /** Triggers direct resume download from the public folder. */
 export function downloadResume() {
