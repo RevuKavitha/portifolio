@@ -192,7 +192,7 @@ export default function Skills() {
               <SkillCategoryCard key={category.title} category={category} />
             ))}
           </div>
-          <div className="grid gap-5">
+          <div className="grid gap-6 lg:grid-cols-2">
             {secondary.map((category) => (
               <SkillCategoryCard key={category.title} category={category} />
             ))}
