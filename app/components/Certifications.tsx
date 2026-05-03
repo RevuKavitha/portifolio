@@ -178,15 +178,15 @@ export default function Certifications() {
                 exit={{ opacity: 0, y: -16, scale: 0.97 }}
                 transition={{ duration: 0.35, delay: index * 0.04 }}
                 whileHover={{ scale: 1.05, y: -6 }}
-                className="group relative"
+                className="group relative h-full"
               >
-                <TiltCard className="group">
+                <TiltCard className="group h-full">
                   <motion.div
                     animate={{ y: [0, -4, 0] }}
                     transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 }}
-                    className="rounded-[18px] bg-gradient-to-br from-cyan-400/45 via-blue-400/35 to-purple-500/45 p-[1px]"
+                    className="h-full rounded-[18px] bg-gradient-to-br from-cyan-400/45 via-blue-400/35 to-purple-500/45 p-[1px]"
                   >
-                    <div className="rounded-[17px] border border-white/10 bg-slate-900/60 p-4 backdrop-blur-xl">
+                    <div className="flex h-full min-h-[530px] flex-col rounded-[17px] border border-white/10 bg-slate-900/60 p-4 backdrop-blur-xl">
                       <div className="relative overflow-hidden rounded-2xl">
                         <div className="relative aspect-[4/3]">
                           <Image
@@ -199,7 +199,7 @@ export default function Certifications() {
                         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
                       </div>
 
-                      <h3 className="mt-4 text-base font-semibold text-cyan-200">{cert.title}</h3>
+                      <h3 className="mt-4 min-h-[64px] text-base font-semibold text-cyan-200">{cert.title}</h3>
                       <p className="mt-1 text-sm text-slate-300">Issuer: {cert.issuer}</p>
                       <p className="mt-1 text-sm text-violet-300">Date: {cert.date}</p>
 
@@ -207,7 +207,7 @@ export default function Certifications() {
                         onClick={() => setSelected(cert)}
                         initial={{ opacity: 0.82 }}
                         whileHover={{ opacity: 1 }}
-                        className="mt-4 w-full rounded-xl border border-cyan-300/55 bg-cyan-400/15 px-3 py-2 text-sm font-semibold text-cyan-100 transition group-hover:shadow-[0_0_16px_rgba(34,211,238,0.25)]"
+                        className="mt-auto w-full rounded-xl border border-cyan-300/55 bg-cyan-400/15 px-3 py-2 text-sm font-semibold text-cyan-100 transition group-hover:shadow-[0_0_16px_rgba(34,211,238,0.25)]"
                       >
                         View Certificate
                       </motion.button>
