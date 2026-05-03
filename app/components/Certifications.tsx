@@ -80,6 +80,13 @@ const certificates: Certificate[] = [
     category: "professional"
   },
   {
+    title: "Introduction to Computer Networks for Non-Techies",
+    issuer: "Udemy",
+    date: "2026",
+    image: "/certificates/udemy_cn.jpg",
+    category: "professional"
+  },
+  {
     title: "Student Team Volunteer",
     issuer: "Puducherry Technological University",
     date: "2022",
